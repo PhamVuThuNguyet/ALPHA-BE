@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const diagnosisSchema = new Schema(
+const treatmentSchema = new Schema(
   {
     user: { type: Schema.Types.ObjectId, ref: 'User' },
-    title: { type: String },
+    doctor: { type: Schema.Types.ObjectId, ref: 'Doctor' },
+    diagnosis: { type: String },
     symtomps: { type: String },
-    description: { type: Date },
-    accurancy: { type: Number },
+    treatment: { type: String },
   },
   {
     timestamps: { createdAt: 'created_at' },
   }
 );
 
-module.exports = diagnosisSchema;
+module.exports = treatmentSchema;

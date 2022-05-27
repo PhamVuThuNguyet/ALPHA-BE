@@ -1,7 +1,7 @@
-const mongoose = require('mongoose')
-const { Schema } = mongoose
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-const meetSchema = new Schema(
+const appointmentSchema = new Schema(
   {
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     doctor: { type: Schema.Types.ObjectId, ref: 'Doctor' },
@@ -14,6 +14,6 @@ const meetSchema = new Schema(
   {
     timestamps: { createdAt: 'created_at' },
   }
-)
+);
 
-module.exports = meetSchema
+module.exports = appointmentSchema;

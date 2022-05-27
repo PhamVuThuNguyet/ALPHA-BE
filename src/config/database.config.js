@@ -1,11 +1,11 @@
-const mongoose = require('mongoose')
-const { DB_URL } = require('../app/utils/constants.util')
+const mongoose = require('mongoose');
+const { DB_URL } = require('../constants/config.constant');
 
 module.exports = async function connectDB() {
   try {
-    await mongoose.connect(DB_URL)
-    console.log('Connect database successfully')
+    await mongoose.connect(DB_URL);
+    console.log('Connect database successfully');
   } catch (error) {
-    console.log('Connect database fail')
+    console.log('Connect database fail');
   }
-}
+};

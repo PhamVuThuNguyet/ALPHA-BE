@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const { Schema } = mongoose
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 const accountSchema = new Schema(
   {
@@ -11,6 +11,6 @@ const accountSchema = new Schema(
   {
     timestamps: { createdAt: 'created_at' },
   }
-)
+);
 
-module.exports = accountSchema
+module.exports = accountSchema;
