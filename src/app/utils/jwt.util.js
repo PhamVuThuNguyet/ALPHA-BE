@@ -11,6 +11,14 @@ class JWTUtil {
     });
     return { accessToken, refreshToken };
   }
+
+  verifyLoginToken(token) {
+    try {
+      return jwt.verify(token, process.env.JWT_SECRET_KEY);
+    } catch (e) {
+      return null;
+    }
+  }
 }
 
 module.exports = new JWTUtil();

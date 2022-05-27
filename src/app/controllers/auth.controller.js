@@ -15,35 +15,35 @@ class AuthController {
       const isValidEmail = validateUtil.validateEmail(req.body.email);
       if (!isValidEmail) {
         res.statusMessage = MESSAGE.EMAIL_INVALID;
-        return res.status(422).send();
+        return res.sendStatus(422);
       }
 
       if (!req.body.firstName) {
         res.statusMessage = MESSAGE.FIRST_NAME_EMPTY;
-        return res.status(400).send();
+        return res.sendStatus(400);
       }
 
       if (!req.body.lastName) {
         res.statusMessage = MESSAGE.LAST_NAME_EMPTY;
-        return res.status(400).send();
+        return res.sendStatus(400);
       }
 
       if (!req.body.password) {
         res.statusMessage = MESSAGE.PASSWORD_EMPTY;
-        return res.status(400).send();
+        return res.sendStatus(400);
       }
 
       const isExisted = await accountService.getOneByEmail(req.body.email);
       if (isExisted) {
         res.statusMessage = MESSAGE.EMAIL_EXISTED;
-        return res.status(409).send();
+        return res.sendStatus(409);
       }
 
       const result = await authService.signup(req.body);
       return res.json(result);
     } catch (e) {
       res.statusMessage = MESSAGE.SERVER_ERROR;
-      return res.status(500).send();
+      return res.sendStatus(500);
     }
   }
 
@@ -64,11 +64,11 @@ class AuthController {
         return res.status(403).send();
       }
 
-      const token = jwtUtil.generateToken({
+      const token = jwtUtil.generateToken({ data: {
         id: account._id,
         email: account.email,
         role: account.role,
-      });
+      }});
       let info = {};
       if (account.role === Roles.DOCTOR) {
         info = await doctorService.getOneByAccountId(account._id);

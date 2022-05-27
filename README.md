@@ -13,7 +13,7 @@
   password: 'alpha@123',
   firstName: 'ALPHA',
   lastName: 'BETA',
-  role?: 'doctor' | user
+  role?: 'doctor' | 'user'
 }
 ```
 + Sign in: `/api/auth/signin`
