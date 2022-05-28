@@ -11,6 +11,8 @@ const diagnosisSchema = require('./schemas/diagnosis.schema');
 const imageSchema = require('./schemas/image.schema');
 const majorSchema = require('./schemas/major.schema');
 const treatmentSchema = require('./schemas/treatment.schema');
+const conversationSchema = require('./schemas/conversation.schema');
+const messageSchema = require('./schemas/message.schema');
 
 module.exports = {
   Account: mongoose.model('Account', accountSchema),
@@ -22,4 +24,6 @@ module.exports = {
   Image: mongoose.model('Image', imageSchema),
   Major: mongoose.model('Major', majorSchema),
   Treatment: mongoose.model('Treatment', treatmentSchema),
+  Conversation: mongoose.model('Conversation', conversationSchema),
+  Message: mongoose.model('Message', messageSchema),
 };

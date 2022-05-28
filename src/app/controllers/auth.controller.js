@@ -64,7 +64,6 @@ class AuthController {
         return res.status(403).send();
       }
 
-
       let info = {};
       if (account.role === Roles.DOCTOR) {
         info = await doctorService.getOneByAccountId(account._id);
@@ -72,12 +71,14 @@ class AuthController {
         info = await userService.getOneByAccountId(account._id);
       }
 
-      const token = jwtUtil.generateToken({ data: {
-        id: info._id,
-        accountId: account._id,
-        email: account.email,
-        role: account.role,
-      }});
+      const token = jwtUtil.generateToken({
+        data: {
+          id: info._id,
+          accountId: account._id,
+          email: account.email,
+          role: account.role,
+        },
+      });
 
       info = JSON.parse(JSON.stringify(info));
 

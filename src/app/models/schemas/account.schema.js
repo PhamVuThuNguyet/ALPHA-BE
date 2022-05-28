@@ -5,8 +5,8 @@ const accountSchema = new Schema(
   {
     email: { type: String, unique: true },
     password: { type: String },
-    provider: { type: String, default: 'local' },
-    role: { type: String, default: 'user' },
+    provider: { type: String, default: 'local', enum: ['local', 'social'] },
+    role: { type: String, default: 'user', enum: ['admin', 'user', 'doctor'] },
   },
   {
     timestamps: { createdAt: 'created_at' },

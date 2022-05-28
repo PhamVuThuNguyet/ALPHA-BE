@@ -13,6 +13,7 @@ module.exports = {
   DOCTOR_HAS_SCHEDULED: 'Doctor has scheduled at this time!',
   APPOINTMENT_NOT_FOUND: 'Appointment not found',
   UPDATE_SUCCESSFUL: 'Update successful!',
-  DELETE_SUCCESSFUL: 'Delete successful'
-
+  DELETE_SUCCESSFUL: 'Delete successful',
+  CONVERSATION_EXISTED: 'Conversation already exists',
+  CONVERSATION_NOT_FOUND: 'Conversation not found',
 };

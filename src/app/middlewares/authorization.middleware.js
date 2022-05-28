@@ -2,11 +2,10 @@ const Roles = require('../../enums/roles.enum');
 const MESSAGE = require('../../constants/messages.constant');
 
 class AuthorizationMiddleware {
-
   authorizeDoctor(req, res, next) {
     try {
       const user = req.user;
-      if(!user || user.role === Roles.USER) {
+      if (!user || user.role === Roles.USER) {
         res.statusMessage = MESSAGE.NOT_AUTHORIZED;
         return res.sendStatus(403);
       }
@@ -20,7 +19,7 @@ class AuthorizationMiddleware {
   authorizeUser(req, res, next) {
     try {
       const user = req.user;
-      if(!user || user.role === Roles.DOCTOR) {
+      if (!user || user.role === Roles.DOCTOR) {
         res.statusMessage = MESSAGE.NOT_AUTHORIZED;
         return res.sendStatus(403);
       }

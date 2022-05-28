@@ -96,12 +96,16 @@ class AppointmentController {
   async delete(req, res) {
     try {
       const appointment = await appointmentService.getById(req.params.id);
-      if(!appointment) {
+      if (!appointment) {
         res.statusMessage = MESSAGE.APPOINTMENT_NOT_FOUND;
         return res.sendStatus(400);
       }
 
-      if(!appointment.user.equals(req.user.id) && appointment.doctor.equals(req.user.id) && req.user.role !== Roles.ADMIN) {
+      if (
+        !appointment.user.equals(req.user.id) &&
+        appointment.doctor.equals(req.user.id) &&
+        req.user.role !== Roles.ADMIN
+      ) {
         res.statusMessage = MESSAGE.NOT_AUTHORIZED;
         return res.sendStatus(403);
       }

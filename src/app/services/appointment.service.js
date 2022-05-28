@@ -2,7 +2,6 @@ const appointmentRepo = require('../repositories/appointment.repository');
 const mongoose = require('mongoose');
 
 class AppointmentService {
-
   getById(id) {
     return appointmentRepo.getById(id);
   }
@@ -17,24 +16,24 @@ class AppointmentService {
       doctor,
       appointmentAt: {
         $gt: time - 3600000,
-        $lt: time + 3600000
-      }
-    }
-    if(id) {
+        $lt: time + 3600000,
+      },
+    };
+    if (id) {
       conditions['_id'] = {
-        $ne: id
-      }
+        $ne: id,
+      };
     }
     return appointmentRepo.getOneByConditions(conditions);
   }
 
   getAppointmentByDoctor(doctor) {
-    const conditions = { doctor }
+    const conditions = { doctor };
     return appointmentRepo.getAllByConditions(conditions);
   }
 
   getAppointmentByUser(user) {
-    const conditions = { user }
+    const conditions = { user };
     return appointmentRepo.getAllByConditions(conditions);
   }
 
@@ -49,7 +48,6 @@ class AppointmentService {
   deleteById(id) {
     return appointmentRepo.deleteById(id);
   }
-
 }
 
 module.exports = new AppointmentService();

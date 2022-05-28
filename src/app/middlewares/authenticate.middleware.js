@@ -6,12 +6,12 @@ class JWTMiddleware {
     try {
       const authHeader = req.headers['authorization'];
       const token = authHeader && authHeader.split(' ')[1];
-      if(!token) {
+      if (!token) {
         res.statusMessage = MESSAGE.NO_TOKEN_PROVIDER;
         return res.sendStatus(403);
       }
       const decodedToken = jwtUtil.verifyLoginToken(token);
-      if(!decodedToken) {
+      if (!decodedToken) {
         res.statusMessage = MESSAGE.TOKEN_NOT_VALID;
         return res.sendStatus(401);
       }
