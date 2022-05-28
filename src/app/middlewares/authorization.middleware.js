@@ -6,7 +6,21 @@ class AuthorizationMiddleware {
   authorizeDoctor(req, res, next) {
     try {
       const user = req.user;
-      if(!user || user.role !== Roles.DOCTOR) {
+      if(!user || user.role === Roles.USER) {
+        res.statusMessage = MESSAGE.NOT_AUTHORIZED;
+        return res.sendStatus(403);
+      }
+      next();
+    } catch (e) {
+      res.statusMessage = MESSAGE.SERVER_ERROR;
+      res.sendStatus(500);
+    }
+  }
+
+  authorizeUser(req, res, next) {
+    try {
+      const user = req.user;
+      if(!user || user.role === Roles.DOCTOR) {
         res.statusMessage = MESSAGE.NOT_AUTHORIZED;
         return res.sendStatus(403);
       }
@@ -18,4 +32,4 @@ class AuthorizationMiddleware {
   }
 }
 
-module.exports = mew AuthorizationMiddleware();
+module.exports = new AuthorizationMiddleware();

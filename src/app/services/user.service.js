@@ -5,6 +5,10 @@ class UserService {
     const conditions = { acount: accountId };
     return userRepo.getOneByConditions(conditions);
   }
+
+  getById(id) {
+    return userRepo.getById(id);
+  }
 }
 
 module.exports = new UserService();

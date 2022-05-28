@@ -1,6 +1,11 @@
 const { User } = require('../models');
 
 class UserRepository {
+
+  getById(id) {
+    return User.findById(id);
+  }
+
   getOneByConditions(conditions) {
     return User.findOne(conditions);
   }

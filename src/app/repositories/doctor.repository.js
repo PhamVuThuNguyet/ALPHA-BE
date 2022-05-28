@@ -5,6 +5,10 @@ class DoctorRepository {
     return Doctor.findOne(conditions);
   }
 
+  getById(id) {
+    return Doctor.findById(id);
+  }
+
   createOne(data) {
     return Doctor.create(data);
   }

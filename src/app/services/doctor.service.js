@@ -5,6 +5,10 @@ class DoctorService {
     const conditions = { acount: accountId };
     return doctorRepo.getOneByConditions(conditions);
   }
+
+  getById(id) {
+    return doctorRepo.getById(id);
+  }
 }
 
 module.exports = new DoctorService();

@@ -64,17 +64,20 @@ class AuthController {
         return res.status(403).send();
       }
 
-      const token = jwtUtil.generateToken({ data: {
-        id: account._id,
-        email: account.email,
-        role: account.role,
-      }});
+
       let info = {};
       if (account.role === Roles.DOCTOR) {
         info = await doctorService.getOneByAccountId(account._id);
       } else {
         info = await userService.getOneByAccountId(account._id);
       }
+
+      const token = jwtUtil.generateToken({ data: {
+        id: info._id,
+        accountId: account._id,
+        email: account.email,
+        role: account.role,
+      }});
 
       info = JSON.parse(JSON.stringify(info));
 
@@ -83,7 +86,6 @@ class AuthController {
         info: { ...info, email: account.email, role: account.role },
       });
     } catch (e) {
-      console.log(e);
       res.statusMessage = MESSAGE.SERVER_ERROR;
       return res.status(500).send();
     }
