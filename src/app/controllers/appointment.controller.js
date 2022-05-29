@@ -1,6 +1,7 @@
 const doctorService = require('../services/doctor.service');
 const appointmentService = require('../services/appointment.service');
 const userService = require('../services/user.service');
+const validateUtils = require('../utils/validate.util');
 const MESSAGE = require('../../constants/messages.constant');
 const Roles = require('../../enums/roles.enum');
 
@@ -66,6 +67,11 @@ class AppointmentController {
   // [POST] /api/appointment
   async create(req, res, next) {
     try {
+      if(!validateUtils.validateObjectId(req.body.doctor)) {
+        res.statusMessage = MESSAGE.DOCTOR_NOT_FOUND;
+        return res.sendStatus(400);
+      }
+
       const [doctor, user] = await Promise.all([
         doctorService.getById(req.body.doctor),
         userService.getById(req.user.id),
@@ -87,6 +93,7 @@ class AppointmentController {
       const newAppointment = await appointmentService.createOne(req.body);
       res.json(newAppointment);
     } catch (e) {
+      console.log(e);
       res.statusMessage = MESSAGE.SERVER_ERROR;
       res.sendStatus(500);
     }

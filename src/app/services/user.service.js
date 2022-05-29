@@ -9,6 +9,10 @@ class UserService {
   getById(id) {
     return userRepo.getById(id);
   }
+
+  updateOne(id, data) {
+    return userRepo.updateOne(id, data);
+  }
 }
 
 module.exports = new UserService();

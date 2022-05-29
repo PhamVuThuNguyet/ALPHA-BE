@@ -16,4 +16,6 @@ module.exports = {
   DELETE_SUCCESSFUL: 'Delete successful',
   CONVERSATION_EXISTED: 'Conversation already exists',
   CONVERSATION_NOT_FOUND: 'Conversation not found',
+  USER_NOT_FOUND: 'User not found',
+  MAJOR_EXISTED: 'Major already exists',
 };

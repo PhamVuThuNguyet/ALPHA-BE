@@ -3,13 +3,13 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema(
   {
-    account: { type: Schema.Types.ObjectId, ref: 'Account', index: true },
+    account: { type: Schema.Types.ObjectId, ref: 'Account', index: true, autopopulate: true },
     firstName: { type: String },
     lastName: { type: String },
     avatar: { type: String },
     dateOfBirth: { type: Date },
     address: { type: String },
-    gender: { type: String },
+    gender: { type: String, enums: [ 'Male', 'Female', 'Other'] },
     data: { type: Schema.Types.Mixed },
   },
   {

@@ -80,3 +80,52 @@
   type: 'text' | 'photo' | file // default: 'text'
 }
 ```
+#### Major API
+- Get list of major: [GET] `/api/major`
+- Create new a major: [POST] `/api/major`
+```
+// Example data in request
+{
+  title: 'Pre-medicine'
+}
+```
+#### User API
+- Get info of a user: [GET] `/api/user/:id`
+- Update info of auth user: [PATCH] `/api/user`
+```
+// Example data in request
+{
+  avatar: 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
+  dateOfBirth: '07/06/2001',
+  address: '470 Trần Đại Nghĩa, Ngũ Hành Sơn, Đà Nẵng',
+  gender: 'Male',
+  data: {
+    blood: ABRh+,
+    height: 170cm,
+    weight: 70kg
+  }
+}
+```
+#### Doctor API
+- Get info of a doctor: [GET] `/api/doctor/:id`,
+- Update info of a doctor: [PATCH] `/api/doctor`
+```
+// Example data in request
+{
+  avatar: 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
+  dateOfBirth: '01/09/2001',
+  degree: 'Master',
+  workplace: {
+    address: '470 Trần Đại Nghĩa, Đà Nẵng',
+    latitute: 15.9750106,
+    longitude: 108.2532374
+  },
+  experience: '4 years in neurology',
+  description: 'A doctor with 4 years experience in neurology',
+  awards: [
+    'Edison Award',
+    'Gonin Medal'
+  ],
+  major: '62938efd40693865985d9704'
+}
+```

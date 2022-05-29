@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const mongoose_delete = require('mongoose-delete');
 mongoose.plugin(mongoose_delete, { deletedAt: true, overrideMethods: true });
+mongoose.plugin(require('mongoose-autopopulate'));
 
 const accountSchema = require('./schemas/account.schema');
 const userSchema = require('./schemas/user.schema');

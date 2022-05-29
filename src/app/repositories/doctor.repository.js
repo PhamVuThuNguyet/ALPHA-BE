@@ -12,6 +12,10 @@ class DoctorRepository {
   createOne(data) {
     return Doctor.create(data);
   }
+
+  updateOne(id, data) {
+    return Doctor.findByIdAndUpdate(id, data);
+  }
 }
 
 module.exports = new DoctorRepository();

@@ -12,6 +12,10 @@ class UserRepository {
   createOne(data) {
     return User.create(data);
   }
+
+  updateOne(id, data) {
+    return User.findByIdAndUpdate(id, data);
+  }
 }
 
 module.exports = new UserRepository();

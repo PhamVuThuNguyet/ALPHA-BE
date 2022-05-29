@@ -1,3 +1,5 @@
+const ObjectId = require('mongoose').Types.ObjectId;
+
 class ValidateUtils {
   validateEmail(email) {
     return String(email)
@@ -5,6 +7,10 @@ class ValidateUtils {
       .match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
+  }
+
+  validateObjectId(id) {
+    return id.match(/^[0-9a-fA-F]{24}$/);
   }
 }
 

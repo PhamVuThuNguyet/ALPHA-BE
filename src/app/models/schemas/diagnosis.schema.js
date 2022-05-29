@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const diagnosisSchema = new Schema(
   {
-    user: { type: Schema.Types.ObjectId, ref: 'User' },
+    user: { type: Schema.Types.ObjectId, ref: 'User', autopopulate: true},
     title: { type: String },
     symtomps: { type: String },
     description: { type: Date },
