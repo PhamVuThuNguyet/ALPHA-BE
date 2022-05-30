@@ -4,10 +4,10 @@ const { Schema } = mongoose;
 const diagnosisSchema = new Schema(
   {
     user: { type: Schema.Types.ObjectId, ref: 'User', autopopulate: true},
-    title: { type: String },
-    symtomps: { type: String },
+    title: { type: String, required: true },
+    symtomps: { type: String, required: true },
     description: { type: Date },
-    accurancy: { type: Number },
+    accuracy: { type: Number },
   },
   {
     timestamps: { createdAt: 'created_at' },

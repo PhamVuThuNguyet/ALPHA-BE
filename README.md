@@ -129,3 +129,31 @@
   major: '62938efd40693865985d9704'
 }
 ```
+#### Treatment API
+- Get list treatment of user: [GET] `/api/treatment/user`
+- Get list treatment of doctor: [GET] `/api/treatment/doctor`
+- Get a specific treatment: [GET] `/api/treatment/:id`
+- Create new a treatment: [POST] `/api/treatment`
+```
+// Example data in request
+{
+  user: '6290eef7f0dc8c7d02856941', // id of user whom doctor want to give treatment
+  diagnosis: 'Fever',
+  symtomps: 'Sweating, Chills and shivering, Headache',
+  treatment: 'Rest and drink plenty of fluids'
+}
+```
+#### Diagnosis API
+- Get list diagnosis of user: [GET] `/api/diagnosis/user`
+- Get a specific diagnosis: [GET] `api/diagnosis/:id`
+- Create a new diagnosis: [POST] `api/diagnosis`
+```
+// Example data in request
+{
+  user: '6290eef7f0dc8c7d02856941',
+  title: 'Fever',
+  symtomps: 'Sweating, Chills and shivering, Headache',
+  description?: '', // can be empty
+  accuracy?: 0.85 //can be empty
+}
+```

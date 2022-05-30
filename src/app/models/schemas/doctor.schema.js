@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const accountSchema = new Schema(
   {
-    account: { type: Schema.Types.ObjectId, ref: 'Account', index: true, autopopulate: true },
+    account: { type: Schema.Types.ObjectId, ref: 'Account', index: true },
     firstName: { type: String, index: true },
     lastName: { type: String, index: true },
     avatar: { type: String },

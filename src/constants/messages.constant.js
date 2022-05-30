@@ -18,4 +18,9 @@ module.exports = {
   CONVERSATION_NOT_FOUND: 'Conversation not found',
   USER_NOT_FOUND: 'User not found',
   MAJOR_EXISTED: 'Major already exists',
+  TREATMENT_NOT_FOUND: 'Treatment not found',
+  DIAGNOSIS_NOT_EMPTY: 'Diagnosis must not be empty!',
+  SYMPTOMS_NOT_EMPTY: 'Symptom must not be empty!',
+  TREATMENT_NOT_EMPTY: 'Treatment must not be empty!',
+  DIAGNOSIS_NOT_FOUND: 'Diagnosis not found!'
 };
