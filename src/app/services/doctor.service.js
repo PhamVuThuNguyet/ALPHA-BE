@@ -2,7 +2,7 @@ const doctorRepo = require('../repositories/doctor.repository');
 
 class DoctorService {
   getOneByAccountId(accountId) {
-    const conditions = { acount: accountId };
+    const conditions = { account: accountId };
     return doctorRepo.getOneByConditions(conditions);
   }
 
