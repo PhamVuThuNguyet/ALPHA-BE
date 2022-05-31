@@ -22,5 +22,5 @@ module.exports = {
   DIAGNOSIS_NOT_EMPTY: 'Diagnosis must not be empty!',
   SYMPTOMS_NOT_EMPTY: 'Symptom must not be empty!',
   TREATMENT_NOT_EMPTY: 'Treatment must not be empty!',
-  DIAGNOSIS_NOT_FOUND: 'Diagnosis not found!'
+  DIAGNOSIS_NOT_FOUND: 'Diagnosis not found!',
 };

@@ -1,6 +1,10 @@
 const userRepo = require('../repositories/user.repository');
 
 class UserService {
+  getAll() {
+    return userRepo.getAll();
+  }
+
   getOneByAccountId(accountId) {
     const conditions = { account: accountId };
     return userRepo.getOneByConditions(conditions);

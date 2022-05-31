@@ -1,7 +1,6 @@
 const diagnosisRepo = require('../repositories/diagnosis.repository');
 
 class DiagnosisService {
-
   getById(id) {
     return diagnosisRepo.getById(id);
   }
@@ -9,7 +8,7 @@ class DiagnosisService {
   getByUserId(userId) {
     const conditions = {
       user: userId,
-    }
+    };
     return diagnosisRepo.getAllByConditions(conditions);
   }
 

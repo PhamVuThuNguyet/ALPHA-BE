@@ -1,6 +1,10 @@
 const doctorRepo = require('../repositories/doctor.repository');
 
 class DoctorService {
+  getAll() {
+    return doctorRepo.getAll();
+  }
+
   getOneByAccountId(accountId) {
     const conditions = { account: accountId };
     return doctorRepo.getOneByConditions(conditions);
@@ -13,7 +17,6 @@ class DoctorService {
   updateOne(id, data) {
     return doctorRepo.updateOne(id, data);
   }
-
 }
 
 module.exports = new DoctorService();

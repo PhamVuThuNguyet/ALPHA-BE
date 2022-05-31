@@ -9,7 +9,7 @@ const userSchema = new Schema(
     avatar: { type: String },
     dateOfBirth: { type: Date },
     address: { type: String },
-    gender: { type: String, enums: [ 'Male', 'Female', 'Other'] },
+    gender: { type: String, enums: ['Male', 'Female', 'Other'] },
     data: { type: Schema.Types.Mixed },
   },
   {

@@ -18,14 +18,13 @@ class MajorController {
   async create(req, res, next) {
     try {
       const isExisted = await majorService.getOneByTitle(req.body.title);
-      if(isExisted) {
+      if (isExisted) {
         res.statusMessage = MESSAGE.MAJOR_EXISTED;
         return res.sendStatus(409);
       }
 
       const newMajor = await majorService.createOne(req.body);
       res.json(newMajor);
-
     } catch (e) {
       res.statusMessage = MESSAGE.SERVER_ERROR;
       res.sendStatus(500);

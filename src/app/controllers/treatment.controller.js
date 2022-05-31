@@ -49,22 +49,22 @@ class TreatmentController {
   // [POST] /treatment
   async create(req, res) {
     try {
-      if(!req.body.user || !validateUtils.validateObjectId(req.body.user)) {
+      if (!req.body.user || !validateUtils.validateObjectId(req.body.user)) {
         res.statusMessage = MESSAGE.USER_NOT_FOUND;
         return res.sendStatus(400);
       }
 
-      if(!req.body.diagnosis) {
+      if (!req.body.diagnosis) {
         res.statusMessage = MESSAGE.DIAGNOSIS_NOT_EMPTY;
         return res.sendStatus(400);
       }
 
-      if(!req.body.symtomps) {
+      if (!req.body.symtomps) {
         res.statusMessage = MESSAGE.SYMPTOMS_NOT_EMPTY;
         return res.sendStatus(400);
       }
 
-      if(!req.body.treatment) {
+      if (!req.body.treatment) {
         res.statusMessage = MESSAGE.TREATMENT_NOT_EMPTY;
         return res.sendStatus(400);
       }
@@ -73,7 +73,6 @@ class TreatmentController {
 
       const newTreatment = await treatmentService.createOne(req.body);
       res.json(newTreatment);
-
     } catch (e) {
       console.log(e);
       res.statusMessage = MESSAGE.SERVER_ERROR;

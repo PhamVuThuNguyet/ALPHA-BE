@@ -67,7 +67,7 @@ class AppointmentController {
   // [POST] /api/appointment
   async create(req, res, next) {
     try {
-      if(!validateUtils.validateObjectId(req.body.doctor)) {
+      if (!validateUtils.validateObjectId(req.body.doctor)) {
         res.statusMessage = MESSAGE.DOCTOR_NOT_FOUND;
         return res.sendStatus(400);
       }

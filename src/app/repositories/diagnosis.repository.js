@@ -1,7 +1,6 @@
 const { Diagnosis } = require('../models');
 
 class DiagnosisRepository {
-
   getById(id) {
     return Diagnosis.findById(id);
   }

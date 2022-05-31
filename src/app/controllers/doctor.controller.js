@@ -3,10 +3,20 @@ const MESSAGE = require('../../constants/messages.constant');
 const validateUtils = require('../utils/validate.util');
 
 class DoctorConroller {
+  // [GET] /api/doctor
+  async index(req, res) {
+    try {
+      const doctors = await doctorService.getAll();
+      res.json(doctors);
+    } catch (e) {
+      res.statusMessage = MESSAGE.SERVER_ERROR;
+      res.sendStatus(500);
+    }
+  }
+
   // [GET] /api/doctor/:id
   async show(req, res, next) {
     try {
-
       if (!validateUtils.validateObjectId(req.params.id)) {
         res.statusMessage = MESSAGE.DOCTOR_NOT_FOUND;
         return res.sendStatus(404);
@@ -20,7 +30,6 @@ class DoctorConroller {
 
       res.json(doctor);
     } catch (e) {
-      console.log(e);
       res.statusMessage = MESSAGE.SERVER_ERROR;
       res.sendStatus(500);
     }

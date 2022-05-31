@@ -11,15 +11,14 @@ class MajorService {
 
   getOneByTitle(title) {
     const conditions = {
-      title
-    }
+      title,
+    };
     return majorRepo.getOneByConditions(conditions);
   }
 
   createOne(data) {
     return majorRepo.createOne(data);
   }
-
 }
 
 module.exports = new MajorService();

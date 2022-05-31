@@ -80,18 +80,24 @@
   type: 'text' | 'photo' | file // default: 'text'
 }
 ```
+
 #### Major API
+
 - Get list of major: [GET] `/api/major`
 - Create new a major: [POST] `/api/major`
+
 ```
 // Example data in request
 {
   title: 'Pre-medicine'
 }
 ```
+
 #### User API
+- Get list of users: [GET] `/api/user`
 - Get info of a user: [GET] `/api/user/:id`
 - Update info of auth user: [PATCH] `/api/user`
+
 ```
 // Example data in request
 {
@@ -106,9 +112,12 @@
   }
 }
 ```
+
 #### Doctor API
+- GET list of doctors: [GET] `/api/doctor`
 - Get info of a doctor: [GET] `/api/doctor/:id`,
 - Update info of a doctor: [PATCH] `/api/doctor`
+
 ```
 // Example data in request
 {
@@ -129,11 +138,14 @@
   major: '62938efd40693865985d9704'
 }
 ```
+
 #### Treatment API
+
 - Get list treatment of user: [GET] `/api/treatment/user`
 - Get list treatment of doctor: [GET] `/api/treatment/doctor`
 - Get a specific treatment: [GET] `/api/treatment/:id`
 - Create new a treatment: [POST] `/api/treatment`
+
 ```
 // Example data in request
 {
@@ -143,10 +155,13 @@
   treatment: 'Rest and drink plenty of fluids'
 }
 ```
+
 #### Diagnosis API
+
 - Get list diagnosis of user: [GET] `/api/diagnosis/user`
-- Get a specific diagnosis: [GET] `api/diagnosis/:id`
-- Create a new diagnosis: [POST] `api/diagnosis`
+- Get a specific diagnosis: [GET] `/api/diagnosis/:id`
+- Create a new diagnosis: [POST] `/api/diagnosis`
+
 ```
 // Example data in request
 {

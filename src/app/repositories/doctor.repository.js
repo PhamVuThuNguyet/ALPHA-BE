@@ -1,6 +1,10 @@
 const { Doctor } = require('../models');
 
 class DoctorRepository {
+  getAll() {
+    return Doctor.find();
+  }
+
   getOneByConditions(conditions) {
     return Doctor.findOne(conditions);
   }

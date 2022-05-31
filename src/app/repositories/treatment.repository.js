@@ -1,7 +1,6 @@
 const { Treatment } = require('../models');
 
 class TreatmentRepository {
-
   getById(id) {
     return Treatment.findById(id);
   }

@@ -1,6 +1,10 @@
 const { User } = require('../models');
 
 class UserRepository {
+  getAll() {
+    return User.find();
+  }
+
   getById(id) {
     return User.findById(id);
   }

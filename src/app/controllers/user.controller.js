@@ -3,6 +3,18 @@ const MESSAGE = require('../../constants/messages.constant');
 const validateUtils = require('../utils/validate.util');
 
 class UserConroller {
+  // [GET] /api/user
+  async index(req, res) {
+    try {
+      const users = await userService.getAll();
+      res.json(users);
+    } catch (e) {
+      console.log(e);
+      res.statusMessage = MESSAGE.SERVER_ERROR;
+      res.sendStatus(500);
+    }
+  }
+
   // [GET] /api/user/:id
   async show(req, res, next) {
     try {
