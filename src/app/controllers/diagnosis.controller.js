@@ -36,17 +36,6 @@ class DiagnosisController {
   // [POST] /api/diagnosis
   async create(req, res) {
     try {
-      console.log(req.body);
-      if (!req.body.user || !validateUtils.validateObjectId(req.body.user)) {
-        res.statusMessage = MESSAGE.USER_NOT_FOUND;
-        return res.sendStatus(400);
-      }
-
-      if (!req.body.title) {
-        res.statusMessage = MESSAGE.DIAGNOSIS_NOT_EMPTY;
-        return res.sendStatus(400);
-      }
-
       if (!req.body.symtomps) {
         res.statusMessage = MESSAGE.SYMPTOMS_NOT_EMPTY;
         return res.sendStatus(400);
